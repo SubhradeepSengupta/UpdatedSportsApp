@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SportsApplication.Models.User>
+
+    @{
+    ViewData["Title"] = "Index";
+    }
+
+    <div class="jumbotron" style="margin-top: 2%;">
+        <h2 style=" text-align: center; margin-bottom: 5%;">User Details Page</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        User Role
+                    </th>
+                    <th>
+                        Edit User
+                    </th>
+                    <th>
+                        Delete User
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Role)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+                    </td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <p>
+        <a class="btn btn-primary" asp-action="Create">Create New User</a>
+    </p>

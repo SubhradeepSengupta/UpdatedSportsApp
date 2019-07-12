@@ -1,0 +1,48 @@
+﻿@model Tuple<List<SportsApplication.Models.TestTypeMapper>, List<SportsApplication.Models.UserTestMapper>>
+@{
+    ViewData["Title"] = "TestDetails";
+}
+
+@{
+    int i = 1;
+}
+
+<div class="jumbotron" style="margin-top: 3%; text-align: center">
+    <h2>Test Details</h2>
+    @foreach (var item in Model.Item1.Take(1))
+    {
+        <h3>Test Name = @item.Test.TestTypeMapper.TestType.Name</h3>
+        <h4>Date = @item.Test.Date</h4>
+    }
+    <table class="table table-responsive" style="margin-top:5%;">
+        <thead>
+            <tr>
+                <td>Ranking</td>
+                <td>Distance (meter)</td>
+                <td>Fitness Rating</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var athletes in Model.Item2.OrderByDescending(a=>a.Test.Date))
+            {
+                <tr>
+                    <td>@i @athletes.User.Name</td>
+                    <td>@athletes.CooperTestDistance</td>
+                    <td>@athletes.FitnessRating</td>
+                </tr>
+                i++;
+            }
+            <tr>
+                <td colspan="3">
+                    <a class="btn btn-success" asp-action="AddAthleteAsync">Add New Athlete</a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <a class="btn btn-danger" asp-action="DeleteTestAsync" onclick="return confirm ('Are you sure about deleting the test?')">Delete Test</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

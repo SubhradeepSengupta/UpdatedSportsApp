@@ -11,7 +11,7 @@ namespace SportsApplication.Models
         [Key]
         public int ID { get; set; }
         [Required]
-        public int Date { get; set; }
+        public DateTime Date { get; set; }
         public virtual ICollection<UserTestMapper> UserTestMappers { get; set; }
         public virtual TestTypeMapper TestTypeMapper { get; set; }
     }

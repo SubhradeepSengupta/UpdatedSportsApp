@@ -1,0 +1,33 @@
+﻿@model  IEnumerable<SportsApplication.Models.TestType>
+@{
+    ViewData["Title"] = "CreateTest";
+}
+
+<h2>Create New Test</h2>
+
+<div class="jumbotron" style="width: 60%; margin-top:2%; text-align: center; position: relative; left: 20%;">
+    <div class="container" style="width: 60%;">
+        <h2 style="margin-bottom: 10%;">Create New test</h2>
+        <form asp-action="CreateTestAsync">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label>Test Type</label>
+                <select id="TestType" name="TestType" class="form-control">
+                    @foreach (TestType test in Model)
+                    {
+                        <option>@test.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Test Date</label>
+                <input type="datetime-local" id="Date" name="Date" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create Test" class="btn btn-success" />
+                <a class="btn btn-danger" asp-action="Index">Back to Tests List</a>
+            </div>
+        </form>
+    </div>
+</div>
+

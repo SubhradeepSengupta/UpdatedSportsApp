@@ -13,9 +13,9 @@ namespace SportsApplication.Models
         public int ID { get; set; }
         public int UserID { get; set; }
         public int TestID { get; set; }
-        public double CooperTestDistance { get; set; }
-        public int SprintTestTime { get; set; }
-        public String FitnessRating { get; set; }
+        public double? CooperTestDistance { get; set; }
+        public int? SprintTestTime { get; set; }
+        public string FitnessRating { get; set; }
 
         [ForeignKey("UserID")]
         public virtual User User { get; set; }

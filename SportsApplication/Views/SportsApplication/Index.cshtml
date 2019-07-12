@@ -1,0 +1,33 @@
+﻿@model IEnumerable<SportsApplication.Models.TestTypeMapper>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="jumbotron" style=" margin-top:3%; text-align: center;">
+    <a class="btn btn-primary btn-lg" asp-action="CreateTest" style="margin-bottom: 3%;">Create New Test</a>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <td>
+                    Date
+                </td>
+                <td>
+                    Number Of Participants
+                </td>
+                <td>
+                    Test Type
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var test in Model.OrderByDescending(t=>t.Test.Date))
+            {
+                <tr>
+                    <td><a asp-action="TestDetails" asp-route-id="@test.TestID" style="display:block; text-decoration:none; color:black">@test.Test.Date</a></td>
+                    <td><a asp-action="TestDetails" asp-route-id="@test.TestID" style="display:block; text-decoration:none; color:black">@test.Test.UserTestMappers.Count()</a></td>
+                    <td><a asp-action="TestDetails" asp-route-id="@test.TestID" style="display:block; text-decoration:none; color:black">@test.TestType.Name</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
