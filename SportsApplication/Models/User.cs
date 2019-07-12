@@ -11,9 +11,9 @@ namespace SportsApplication.Models
         [Key]
         public int ID { get; set; }
         [Required]
-        public String Name { get; set; }
+        public string Name { get; set; }
         [Required]
-        public Enum Role { get; set; }
+        public UserRole Role { get; set; }
         public virtual ICollection<UserTestMapper> UserTestMappers { get; set; }
     }
 
