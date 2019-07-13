@@ -30,9 +30,9 @@
                 @foreach (var athletes in Model.Item2.OrderByDescending(a=>a.CooperTestDistance))
                 {
                     <tr>
-                        <td><a asp-action="EditAthlete" asp-route-id="@athletes.UserID" style="display:block; text-decoration:none; color:black">@i @athletes.User.Name</a></td>
-                        <td><a asp-action="EditAthlete" asp-route-id="@athletes.UserID" style="display:block; text-decoration:none; color:black">@athletes.CooperTestDistance</a></td>
-                        <td><a asp-action="EditAthlete" asp-route-id="@athletes.UserID" style="display:block; text-decoration:none; color:black">@athletes.FitnessRating</a></td>
+                        <td><a asp-action="EditAthlete" asp-route-id="@athletes.UserID" asp-route-testType="@TestName" style="display:block; text-decoration:none; color:black">@i. @athletes.User.Name</a></td>
+                        <td><a asp-action="EditAthlete" asp-route-id="@athletes.UserID" asp-route-testType="@TestName" style="display:block; text-decoration:none; color:black">@athletes.CooperTestDistance</a></td>
+                        <td><a asp-action="EditAthlete" asp-route-id="@athletes.UserID" asp-route-testType="@TestName" style="display:block; text-decoration:none; color:black">@athletes.FitnessRating</a></td>
                     </tr>
                     i++;
                 }
@@ -63,8 +63,8 @@
                 @foreach (var athletes in Model.Item2.OrderBy(a=>a.SprintTestTime))
                 {
                     <tr>
-                        <td><a asp-action="EditAthlete" asp-route-id="@athletes.UserID" style="display:block; text-decoration:none; color:black">@i  @athletes.User.Name</a></td>
-                        <td><a asp-action="EditAthlete" asp-route-id="@athletes.UserID" style="display:block; text-decoration:none; color:black">@athletes.SprintTestTime</a></td>
+                        <td><a asp-action="EditAthlete" asp-route-id="@athletes.UserID" asp-route-testType="@TestName" style="display:block; text-decoration:none; color:black">@i.  @athletes.User.Name</a></td>
+                        <td><a asp-action="EditAthlete" asp-route-id="@athletes.UserID" asp-route-testType="@TestName" style="display:block; text-decoration:none; color:black">@athletes.SprintTestTime</a></td>
                     </tr>
                     i++;
                 }

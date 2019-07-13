@@ -64,7 +64,7 @@ using SportsApplication.Models;
             WriteLiteral("\r\n<div class=\"jumbotron\" style=\" margin-top:3%; text-align: center;\">\r\n    ");
             EndContext();
             BeginContext(181, 104, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6e7dfbbfd123451b9e275e85117287cf", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "154b8668da244c2599fb5e8afebbf5fc", async() => {
                 BeginContext(266, 15, true);
                 WriteLiteral("Create New Test");
                 EndContext();
@@ -113,7 +113,7 @@ using SportsApplication.Models;
             WriteLiteral("                <tr>\r\n                    <td>");
             EndContext();
             BeginContext(819, 132, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7b79d24a4c8a4882b846ace3655f635d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "100e606506f848df9ed79a91ec60f576", async() => {
                 BeginContext(933, 14, false);
 #line 26 "C:\Users\subhradeep\Desktop\Asp.net Core Test\SportsApplication\SportsApplication\Views\SportsApplication\Index.cshtml"
                                                                                                                                     Write(test.Test.Date);
@@ -153,7 +153,7 @@ using SportsApplication.Models;
             WriteLiteral("</td>\r\n                    <td>");
             EndContext();
             BeginContext(982, 151, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d126638c79844071b820db750bad9c9d", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "84950516b75e41179c6c2a2ec0ebcf5d", async() => {
                 BeginContext(1096, 33, false);
 #line 27 "C:\Users\subhradeep\Desktop\Asp.net Core Test\SportsApplication\SportsApplication\Views\SportsApplication\Index.cshtml"
                                                                                                                                     Write(test.Test.UserTestMappers.Count());
@@ -193,7 +193,7 @@ using SportsApplication.Models;
             WriteLiteral("</td>\r\n                    <td>");
             EndContext();
             BeginContext(1164, 136, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d74f54ff96e44b0e9d3129ccf3d6bc06", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "646a4969d3ad4fefa8523db34ac80386", async() => {
                 BeginContext(1278, 18, false);
 #line 28 "C:\Users\subhradeep\Desktop\Asp.net Core Test\SportsApplication\SportsApplication\Views\SportsApplication\Index.cshtml"
                                                                                                                                     Write(test.TestType.Name);

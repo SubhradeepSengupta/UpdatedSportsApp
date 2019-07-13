@@ -122,10 +122,36 @@ namespace SportsApplication.Controllers
             return RedirectToAction("TestDetails", new { id = TestID });
         }
 
-        public IActionResult EditAthlete(int id)
+        public IActionResult EditAthlete(int id, string testType)
         {
+            var athlete = _context.UserTestMappers.Include(u => u.Test.TestTypeMapper.TestType).Include(u => u.User).Where(u => u.UserID == id);
+            ViewBag.TestType = testType;
+            return View(athlete);
+        }
 
-            return Content("Hello" + id);
+        public async Task<IActionResult> EditAthleteAsync([FromForm] AthleteEditViewModel athlete)
+        {
+            var UserPerTest = _context.UserTestMappers.Where(u => u.TestID == athlete.TestId).Where(u => u.UserID == athlete.AthleteId).FirstOrDefault();
+            if (athlete.CooperDistance != 0)
+            {
+                UserPerTest.CooperTestDistance = athlete.CooperDistance;
+                UserPerTest.FitnessRating = CalculateFitness(athlete.CooperDistance);
+            }
+            else
+            {
+                UserPerTest.SprintTestTime = athlete.SprintTime;
+            }
+            _context.UserTestMappers.Update(UserPerTest);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("TestDetails", new { id = athlete.TestId });
+        }
+
+        public async Task<IActionResult> DeleteAthleteAsync(int id, int testId)
+        {
+            var athlete = _context.UserTestMappers.Where(a => a.TestID == testId).Where(a => a.UserID == id).FirstOrDefault();
+            _context.UserTestMappers.Remove(athlete);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("TestDetails", new { id = testId });
         }
 
         private string CalculateFitness(double distance)

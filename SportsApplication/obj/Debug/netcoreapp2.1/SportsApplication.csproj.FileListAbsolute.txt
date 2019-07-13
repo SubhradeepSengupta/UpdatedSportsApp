@@ -38,3 +38,4 @@ C:\Users\subhradeep\Desktop\Asp.net Core Test\SportsApplication\SportsApplicatio
 C:\Users\subhradeep\Desktop\Asp.net Core Test\SportsApplication\SportsApplication\obj\Debug\netcoreapp2.1\Razor\Views\SportsApplication\CreateTest.g.cshtml.cs
 C:\Users\subhradeep\Desktop\Asp.net Core Test\SportsApplication\SportsApplication\obj\Debug\netcoreapp2.1\Razor\Views\SportsApplication\TestDetails.g.cshtml.cs
 C:\Users\subhradeep\Desktop\Asp.net Core Test\SportsApplication\SportsApplication\obj\Debug\netcoreapp2.1\Razor\Views\SportsApplication\AddAthlete.g.cshtml.cs
+C:\Users\subhradeep\Desktop\Asp.net Core Test\SportsApplication\SportsApplication\obj\Debug\netcoreapp2.1\Razor\Views\SportsApplication\EditAthlete.g.cshtml.cs

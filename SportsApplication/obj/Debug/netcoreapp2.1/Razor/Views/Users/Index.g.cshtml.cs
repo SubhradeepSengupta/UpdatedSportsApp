@@ -118,7 +118,7 @@ using SportsApplication.Models;
             WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n                        ");
             EndContext();
             BeginContext(1107, 53, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0bc327a72966430988ab754c2e94f086", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1985dc8b39ba473ab5df5b2fd530fa49", async() => {
                 BeginContext(1152, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -153,7 +153,7 @@ using SportsApplication.Models;
             WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n                        ");
             EndContext();
             BeginContext(1239, 57, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ec72f50289b4edd81f33aa1a97b1a37", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9a593861e10d4681a4fcd946519a01c4", async() => {
                 BeginContext(1286, 6, true);
                 WriteLiteral("Delete");
                 EndContext();
@@ -196,7 +196,7 @@ using SportsApplication.Models;
             WriteLiteral("            </tbody>\r\n        </table>\r\n    </div>\r\n\r\n    <p>\r\n        ");
             EndContext();
             BeginContext(1438, 66, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0322aa48c7ce400692f091418837160a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7d36a82a4aab4b919acfe45535e3c35f", async() => {
                 BeginContext(1485, 15, true);
                 WriteLiteral("Create New User");
                 EndContext();

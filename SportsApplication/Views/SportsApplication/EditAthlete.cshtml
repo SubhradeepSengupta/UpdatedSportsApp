@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SportsApplication.Models.UserTestMapper>
+@{
+    ViewData["Title"] = "EditAthlete";
+    var CooperTestDistance = 0.0;
+    var SprintTime = 0;
+    var AthleteID = 0;
+    var TestID = 0;
+}
+
+<div class="jumbotron" style="margin-top: 3%; text-align: center">
+    <h2 style="margin-bottom: 2%;">Change Data for Athlete</h2>
+
+    <form asp-action="EditAthleteAsync">
+        @if (ViewBag.TestType == "Cooper Test")
+        {
+            <div class="form-group">
+                <label>Name</label>
+                <select class="form-control" id="Name" name="Name">
+                    @foreach (var athlete in Model.Where(a => a.Test.TestTypeMapper.TestType.Name.Equals(ViewBag.TestType)))
+                    {
+                        <option>@athlete.User.Name</option>
+                        CooperTestDistance = (double)athlete.CooperTestDistance;
+                        AthleteID = athlete.UserID;
+                        TestID = athlete.TestID;
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Distance</label>
+                <input class="form-control" id="CooperDistance" name="CooperDistance" value="@CooperTestDistance" />
+            </div>
+            <input id="TestId" name="TestId" value="@TestID" hidden />
+            <input id="AthleteId" name="AthleteId" value="@AthleteID" hidden />
+        }
+        else
+        {
+            <div class="form-group">
+                <label>Name</label>
+                <select class="form-control" id="Name" name="Name">
+                    @foreach (var athlete in Model.Where(a => a.Test.TestTypeMapper.TestType.Name.Equals(ViewBag.TestType)))
+                    {
+                        <option>@athlete.User.Name</option>
+                        SprintTime = (int)athlete.SprintTestTime;
+                        AthleteID = athlete.UserID;
+                        TestID = athlete.TestID;
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Distance</label>
+                <input class="form-control" id="SprintTime" name="SprintTime" value="@SprintTime" />
+            </div>
+            <input id="TestId" name="TestId" value="@TestID" hidden />
+            <input id="AthleteId" name="AthleteId" value="@AthleteID" hidden />
+        }
+        <div class="form-group">
+            <a class="btn btn-danger" asp-route-id="@AthleteID" asp-route-testId="@TestID" asp-action="DeleteAthleteAsync">Delete Athlete From Test</a>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success" type="submit">Save</button>
+        </div>
+    </form>
+</div>
+
