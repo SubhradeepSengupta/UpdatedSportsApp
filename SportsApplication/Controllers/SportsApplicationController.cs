@@ -21,7 +21,7 @@ namespace SportsApplication.Controllers
 
         public IActionResult Index()
         {
-            var testType = _context.TestTypeMappers.Include(t=>t.Test.UserTestMappers).Include(t => t.Test).ThenInclude(t => t.TestTypeMapper.TestType);
+            var testType = _context.TestTypeMappers.Include(t => t.Test.UserTestMappers).Include(t => t.Test).ThenInclude(t => t.TestTypeMapper.TestType);
             return View(testType);
         }
 
@@ -54,9 +54,9 @@ namespace SportsApplication.Controllers
         {
             TestID = id;
             var test = await _context.TestTypeMappers.Include(t => t.Test).ThenInclude(t => t.TestTypeMapper.TestType).Where(t => t.TestID == id).ToListAsync();
-            var Athletes = await _context.UserTestMappers.Include(t=>t.User).Include(t => t.Test).ThenInclude(t => t.TestTypeMapper.TestType).Where(t => t.TestID == id).ToListAsync();
+            var Athletes = await _context.UserTestMappers.Include(t => t.User).Include(t => t.Test).ThenInclude(t => t.TestTypeMapper.TestType).Where(t => t.TestID == id).ToListAsync();
 
-            return View(Tuple.Create(test,Athletes));
+            return View(Tuple.Create(test, Athletes));
         }
 
         public async Task<IActionResult> DeleteTestAsync()
@@ -68,9 +68,10 @@ namespace SportsApplication.Controllers
         }
 
 
-        public async Task<IActionResult> AddAthleteAsync()
+        public async Task<IActionResult> AddAthleteAsync(string testName)
         {
             var Users = await _context.Users.Where(u => u.Role.Equals(UserRole.Athlete)).ToListAsync();
+            ViewBag.TestName = testName;
             return View("AddAthlete", Users);
         }
 
@@ -78,21 +79,53 @@ namespace SportsApplication.Controllers
         public async Task<IActionResult> AddAthleteAsync([FromForm] AthleteViewModel athlete)
         {
             UserTestMapper UserTest = new UserTestMapper();
+            var UserExist = (from user in _context.UserTestMappers.Where(t => t.TestID == TestID)
+                             select user.User.Name).ToList();
             var Tests = await _context.Tests.FirstOrDefaultAsync(t => t.ID == TestID);
             var Users = _context.Users.Where(u => u.Name == athlete.Name);
 
-            UserTest.TestID = Tests.ID;
-            foreach (User user in Users)
+            if (!UserExist.Contains(athlete.Name))
             {
-                UserTest.UserID = user.ID;
+                UserTest.TestID = Tests.ID;
+                foreach (User user in Users)
+                {
+                    UserTest.UserID = user.ID;
+                }
+                if (athlete.Distance != 0)
+                {
+                    UserTest.CooperTestDistance = athlete.Distance;
+                    UserTest.FitnessRating = CalculateFitness(athlete.Distance);
+                }
+                else
+                {
+                    UserTest.SprintTestTime = athlete.Time;
+                }
+                _context.UserTestMappers.Add(UserTest);
             }
-            UserTest.CooperTestDistance = athlete.Distance;
-            UserTest.FitnessRating = CalculateFitness(athlete.Distance);
+            else
+            {
+                var UpdateUser = _context.UserTestMappers.Where(u => u.User.Name == athlete.Name).Where(u=>u.TestID == TestID).FirstOrDefault();
 
-            _context.UserTestMappers.Add(UserTest);
+                if (athlete.Distance != 0)
+                {
+                    UpdateUser.CooperTestDistance = athlete.Distance;
+                    UpdateUser.FitnessRating = CalculateFitness(athlete.Distance);
+                }
+                else
+                {
+                    UpdateUser.SprintTestTime = athlete.Time;
+                }
+                _context.UserTestMappers.Update(UpdateUser);
+            }
             await _context.SaveChangesAsync();
 
-            return RedirectToAction("TestDetails", new { id = TestID } );
+            return RedirectToAction("TestDetails", new { id = TestID });
+        }
+
+        public IActionResult EditAthlete(int id)
+        {
+
+            return Content("Hello" + id);
         }
 
         private string CalculateFitness(double distance)

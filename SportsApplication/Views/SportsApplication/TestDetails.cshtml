@@ -5,6 +5,7 @@
 
 @{
     int i = 1;
+    String TestName = " ";
 }
 
 <div class="jumbotron" style="margin-top: 3%; text-align: center">
@@ -12,37 +13,74 @@
     @foreach (var item in Model.Item1.Take(1))
     {
         <h3>Test Name = @item.Test.TestTypeMapper.TestType.Name</h3>
+        TestName = @item.Test.TestTypeMapper.TestType.Name;
         <h4>Date = @item.Test.Date</h4>
     }
-    <table class="table table-responsive" style="margin-top:5%;">
-        <thead>
-            <tr>
-                <td>Ranking</td>
-                <td>Distance (meter)</td>
-                <td>Fitness Rating</td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var athletes in Model.Item2.OrderByDescending(a=>a.Test.Date))
-            {
-                <tr>
-                    <td>@i @athletes.User.Name</td>
-                    <td>@athletes.CooperTestDistance</td>
-                    <td>@athletes.FitnessRating</td>
+    @if (TestName.Equals("Cooper Test"))
+    {
+        <table class="table table-responsive" style="margin-top:5%;">
+            <thead>
+                <tr style="font-weight:bold">
+                    <td>Ranking</td>
+                    <td>Distance (meter)</td>
+                    <td>Fitness Rating</td>
                 </tr>
-                i++;
-            }
-            <tr>
-                <td colspan="3">
-                    <a class="btn btn-success" asp-action="AddAthleteAsync">Add New Athlete</a>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3">
-                    <a class="btn btn-danger" asp-action="DeleteTestAsync" onclick="return confirm ('Are you sure about deleting the test?')">Delete Test</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var athletes in Model.Item2.OrderByDescending(a=>a.CooperTestDistance))
+                {
+                    <tr>
+                        <td><a asp-action="EditAthlete" asp-route-id="@athletes.UserID" style="display:block; text-decoration:none; color:black">@i @athletes.User.Name</a></td>
+                        <td><a asp-action="EditAthlete" asp-route-id="@athletes.UserID" style="display:block; text-decoration:none; color:black">@athletes.CooperTestDistance</a></td>
+                        <td><a asp-action="EditAthlete" asp-route-id="@athletes.UserID" style="display:block; text-decoration:none; color:black">@athletes.FitnessRating</a></td>
+                    </tr>
+                    i++;
+                }
+
+                <tr>
+                    <td colspan="3">
+                        <a class="btn btn-success" asp-route-testName="@TestName" asp-action="AddAthleteAsync">Add New Athlete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <a class="btn btn-danger" asp-action="DeleteTestAsync" onclick="return confirm ('Are you sure about deleting the test?')">Delete Test</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <table class="table table-responsive" style="margin-top:5%;">
+            <thead>
+                <tr style="font-weight:bold">
+                    <td>Ranking</td>
+                    <td>Time (seconds)</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var athletes in Model.Item2.OrderBy(a=>a.SprintTestTime))
+                {
+                    <tr>
+                        <td><a asp-action="EditAthlete" asp-route-id="@athletes.UserID" style="display:block; text-decoration:none; color:black">@i  @athletes.User.Name</a></td>
+                        <td><a asp-action="EditAthlete" asp-route-id="@athletes.UserID" style="display:block; text-decoration:none; color:black">@athletes.SprintTestTime</a></td>
+                    </tr>
+                    i++;
+                }
+
+                <tr>
+                    <td colspan="3">
+                        <a class="btn btn-success" asp-route-testName="@TestName" asp-action="AddAthleteAsync">Add New Athlete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <a class="btn btn-danger" asp-action="DeleteTestAsync" onclick="return confirm ('Are you sure about deleting the test?')">Delete Test</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
 </div>
 

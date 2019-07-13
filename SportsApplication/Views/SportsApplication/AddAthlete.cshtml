@@ -3,8 +3,8 @@
     ViewData["Title"] = "AddAthlete";
 }
 
-<div class="jumbotron" style="margin-top: 3%;">
-    <h2>Athlete Add Page</h2>
+<div class="jumbotron" style="margin-top: 3%; text-align: center;">
+    <h2 style=" margin-bottom:2%;">Athlete Add Page</h2>
     <form asp-action="AddAthleteAsync">
         <label>Name</label>
         <select id="Name" name="Name" class="form-control">
@@ -13,10 +13,21 @@
                 <option>@user.Name</option>
             }
         </select>
-        <div class="form-group">
-            <label>Distance</label>
-            <input class="form-control" id="Distance" name="Distance" autocomplete="off" />
-        </div>
+
+        @if (@ViewBag.TestName == "Cooper Test")
+        {
+            <div class="form-group" style="margin-top: 2%;">
+                <label>Distance</label>
+                <input class="form-control" id="Distance" name="Distance" autocomplete="off" />
+            </div>
+        }
+        else
+        {
+            <div class="form-group" style="margin-top: 2%;">
+                <label>Time</label>
+                <input class="form-control" id="Time" name="Time" autocomplete="off" />
+            </div>
+        }
 
         <button type="submit" class="btn btn-success">Save</button>
     </form>

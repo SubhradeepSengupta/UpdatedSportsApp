@@ -9,5 +9,6 @@ namespace SportsApplication.ViewModel
     {
         public String Name { get; set; }
         public double Distance { get; set; }
+        public int? Time{ get; set; }
     }
 }
