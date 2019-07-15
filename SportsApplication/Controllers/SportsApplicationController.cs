@@ -68,12 +68,13 @@ namespace SportsApplication.Controllers
         }
 
 
-        public async Task<IActionResult> AddAthleteAsync(string testName)
+        public async Task<IActionResult> AddAthlete(string testName)
         {
             var Users = await _context.Users.Where(u => u.Role.Equals(UserRole.Athlete)).ToListAsync();
             ViewBag.TestName = testName;
             return View("AddAthlete", Users);
         }
+
 
         [HttpPost]
         public async Task<IActionResult> AddAthleteAsync([FromForm] AthleteViewModel athlete)
