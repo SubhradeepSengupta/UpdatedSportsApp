@@ -14,7 +14,7 @@
     {
         <h3>Test Name = @item.Test.TestTypeMapper.TestType.Name</h3>
         TestName = @item.Test.TestTypeMapper.TestType.Name;
-        <h4>Date = @item.Test.Date</h4>
+        <h4>Date = @item.Test.Date.ToShortDateString()</h4>
     }
     @if (TestName.Equals("Cooper Test"))
     {

@@ -23,7 +23,7 @@
             @foreach (var test in Model.OrderByDescending(t=>t.Test.Date))
             {
                 <tr>
-                    <td><a asp-action="TestDetails" asp-route-id="@test.TestID" style="display:block; text-decoration:none; color:black">@test.Test.Date</a></td>
+                    <td><a asp-action="TestDetails" asp-route-id="@test.TestID" style="display:block; text-decoration:none; color:black">@test.Test.Date.ToShortDateString()</a></td>
                     <td><a asp-action="TestDetails" asp-route-id="@test.TestID" style="display:block; text-decoration:none; color:black">@test.Test.UserTestMappers.Count()</a></td>
                     <td><a asp-action="TestDetails" asp-route-id="@test.TestID" style="display:block; text-decoration:none; color:black">@test.TestType.Name</a></td>
                 </tr>
