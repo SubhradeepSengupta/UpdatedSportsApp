@@ -67,12 +67,12 @@ using SportsApplication.Models;
             WriteLiteral("\r\n<div class=\"jumbotron\" style=\"width: 60%; margin-top:2%; text-align: center; position: relative; left: 20%;\">\r\n    <div class=\"container\" style=\"width: 60%;\">\r\n        <h2 style=\"margin-bottom: 10%;\">Create New test</h2>\r\n        ");
             EndContext();
             BeginContext(334, 910, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a1734d6251c845a1a1a86ba83a0804c0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ad21787081024ebeb5e5b54cfaaebed6", async() => {
                 BeginContext(369, 14, true);
                 WriteLiteral("\r\n            ");
                 EndContext();
                 BeginContext(383, 66, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "be48346b24b84c20aaaf98265783b9ed", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("div", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7ed4fc5c797347b09cb835b097740760", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.ValidationSummaryTagHelper>();
@@ -105,7 +105,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                 WriteLiteral("                        ");
                 EndContext();
                 BeginContext(710, 27, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9164862bb1b04d73adf80258c96b5a85", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3cd60122903a46a9a121951a41c3edc3", async() => {
                     BeginContext(719, 9, false);
 #line 16 "C:\Users\subhradeep\Desktop\Asp.net Core Test\SportsApplication\SportsApplication\Views\SportsApplication\CreateTest.cshtml"
                            Write(test.Name);
@@ -145,7 +145,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ValidationSummaryTagHelper.ValidationSumma
                 ");
                 EndContext();
                 BeginContext(1140, 67, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8b2b1f539a4b404c9abfbd4c85de58ec", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b594e6594c704c1db4ead664e674fe90", async() => {
                     BeginContext(1185, 18, true);
                     WriteLiteral("Back to Tests List");
                     EndContext();

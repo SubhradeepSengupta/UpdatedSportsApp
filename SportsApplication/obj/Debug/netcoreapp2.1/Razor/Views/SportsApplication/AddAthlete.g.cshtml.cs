@@ -62,7 +62,7 @@ using SportsApplication.Models;
             WriteLiteral("\r\n<div class=\"jumbotron\" style=\"margin-top: 3%; text-align: center;\">\r\n    <h2 style=\" margin-bottom:2%;\">Athlete Add Page</h2>\r\n    ");
             EndContext();
             BeginContext(230, 884, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b96a1b13e5dd4422b467a1511bc699e1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "839a6e05be104dac815088a37b082e7e", async() => {
                 BeginContext(265, 92, true);
                 WriteLiteral("\r\n        <label>Name</label>\r\n        <select id=\"Name\" name=\"Name\" class=\"form-control\">\r\n");
                 EndContext();
@@ -76,7 +76,7 @@ using SportsApplication.Models;
                 WriteLiteral("                ");
                 EndContext();
                 BeginContext(431, 27, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "57f945ffa3d44f718eb0b0a50c721610", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "079e861c98ec4e0fba43e8069400970c", async() => {
                     BeginContext(440, 9, false);
 #line 13 "C:\Users\subhradeep\Desktop\Asp.net Core Test\SportsApplication\SportsApplication\Views\SportsApplication\AddAthlete.cshtml"
                    Write(user.Name);
